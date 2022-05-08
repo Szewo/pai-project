@@ -18,3 +18,12 @@ services:
       dockerfile: docker/php/Dockerfile
     volumes:
       - .:/app/
+
+  database:
+    image: 'postgres:latest'
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: gym
+      POSTGRES_PASSWORD: bro
+      POSTGRES_DB: gymbro_db
