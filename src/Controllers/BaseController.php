@@ -6,7 +6,8 @@ use App\Exceptions\ViewNotFoundException;
 
 abstract class BaseController
 {
-    public function renderView(string $viewName, array $params = []): string {
+    public function renderView(string $viewName, array $params = []): string
+    {
         $viewDir = VIEWS_DIR . $viewName . '.php';
 
         if (!file_exists($viewDir)) {

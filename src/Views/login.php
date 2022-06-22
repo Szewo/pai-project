@@ -9,5 +9,16 @@
 <body>
     <h1>GymBro</h1> <br>
     <h2>Personal workout planner</h2>
+    <form class="login" action="/" method="POST">
+        <label>
+            <input name="email" type="text" placeholder="email"/>
+        </label>
+        <br>
+        <label>
+            <input name="password" type="password" placeholder="password">
+        </label>
+        <br>
+        <button type="submit"> SUBMIT </button>
+    </form>
 </body>
 </html>

@@ -3,6 +3,7 @@
 use App\Application;
 
 use App\Controllers\LoginController;
+use App\Controllers\SecurityController;
 use App\Routing\Request;
 use App\Routing\Router;
 
@@ -13,5 +14,6 @@ const VIEWS_DIR = __DIR__ . '/../src/Views/';
 $application = new Application(new Router());
 $application->addControllersToRouter([
     LoginController::class,
+    SecurityController::class,
 ]);
 echo $application->handleRouting(new Request());
