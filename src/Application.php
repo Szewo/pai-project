@@ -20,7 +20,7 @@ class Application
      */
     public function addControllersToRouter(array $controllers): void
     {
-        $this->router->reqisterRoutes($controllers);
+        $this->router->registerRoutes($controllers);
     }
 
     /**

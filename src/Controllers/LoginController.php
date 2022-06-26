@@ -13,6 +13,13 @@ class LoginController extends BaseController
     #[Route('/')]
     public function login(): string
     {
+        $this->resetSession();
         return $this->renderView('login');
+    }
+
+    private function resetSession(): void
+    {
+        session_destroy();
+        session_start();
     }
 }

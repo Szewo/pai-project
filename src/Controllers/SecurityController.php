@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Attributes\Route;
 use App\Exceptions\ViewNotFoundException;
 use App\Repository\UserRepository;
+use App\Routing\UserRole;
 
 class SecurityController extends BaseController
 {
@@ -19,7 +20,7 @@ class SecurityController extends BaseController
     /**
      * @throws ViewNotFoundException
      */
-    #[Route('/', 'POST')]
+    #[Route('/', 'POST', UserRole::ANONYMOUS)]
     public function login() {
 
         if (!$this->isPost()) {
@@ -41,7 +42,6 @@ class SecurityController extends BaseController
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/dashboard");
-
     }
 
 }
