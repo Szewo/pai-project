@@ -1,7 +1,8 @@
 {
     "name": "szewo/gymbro-app",
     "require": {
-      "ext-http": "*"
+      "ext-http": "*",
+      "ext-pdo": "*"
     },
     "autoload": {
       "psr-4": {

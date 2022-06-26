@@ -2,6 +2,7 @@
 
 use App\Application;
 
+use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\SecurityController;
 use App\Routing\Request;
@@ -12,8 +13,12 @@ require __DIR__ . '/../vendor/autoload.php';
 const VIEWS_DIR = __DIR__ . '/../src/Views/';
 
 $application = new Application(new Router());
-$application->addControllersToRouter([
-    LoginController::class,
-    SecurityController::class,
-]);
+try {
+    $application->addControllersToRouter([
+        LoginController::class,
+        SecurityController::class,
+        HomeController::class,
+    ]);
+} catch (ReflectionException $e) {
+}
 echo $application->handleRouting(new Request());

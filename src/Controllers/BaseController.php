@@ -3,9 +3,18 @@
 namespace App\Controllers;
 
 use App\Exceptions\ViewNotFoundException;
+use App\Routing\Request;
+use App\Routing\RequestInterface;
 
-abstract class BaseController
+class BaseController
 {
+    protected RequestInterface $request;
+
+    public function __construct()
+    {
+        $this->request = new Request();
+    }
+
     public function renderView(string $viewName, array $params = []): string
     {
         $viewDir = VIEWS_DIR . $viewName . '.php';
@@ -23,5 +32,13 @@ abstract class BaseController
         ob_start();
         include $viewDir;
         return ob_get_clean();
+    }
+
+    protected function isGet(): bool {
+        return $this->request->getMethod() === 'GET';
+    }
+
+    protected function isPost(): bool {
+        return $this->request->getMethod() === 'POST';
     }
 }

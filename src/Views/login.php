@@ -9,6 +9,14 @@
 <body>
     <h1>GymBro</h1> <br>
     <h2>Personal workout planner</h2>
+    <div class="message">
+        <?php
+            if(isset($message))
+            {
+                echo $message;
+            }
+        ?>
+    </div>
     <form class="login" action="/" method="POST">
         <label>
             <input name="email" type="text" placeholder="email"/>
