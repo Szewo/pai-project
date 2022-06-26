@@ -8,13 +8,18 @@ class User
     private string $password;
     private string $name;
     private string $surname;
+    private ?int $id;
+    private ?int $userDetails;
 
-    public function __construct(string $email, string $password, string $name, string $surname)
+    public function __construct(string $email, string $password, string $name, string $surname, int $id = NULL,
+                                int $userDetails = NULL)
     {
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
         $this->surname = $surname;
+        $this->id = $id;
+        $this->userDetails = $userDetails;
     }
 
     /**
@@ -81,6 +86,35 @@ class User
         $this->surname = $surname;
     }
 
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
 
+    /**
+     * @return int|null
+     */
+    public function getUserDetails(): ?int
+    {
+        return $this->userDetails;
+    }
+
+    /**
+     * @param int|null $userDetails
+     */
+    public function setUserDetails(?int $userDetails): void
+    {
+        $this->userDetails = $userDetails;
+    }
 }
