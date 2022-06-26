@@ -8,7 +8,7 @@ use PDO;
 class UserRepository extends BaseRepository
 {
     public function getUserByEmail(string $email): ?User {
-        $sql = 'SELECT * FROM users WHERE email = :email';
+        $sql = 'SELECT * FROM view_user_data WHERE email = :email';
         $db = $this->getPdo()->prepare($sql);
         $db->bindValue(':email', $email);
         $db->execute();
@@ -23,7 +23,8 @@ class UserRepository extends BaseRepository
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['surname']
+            $user['surname'],
+            $user['id']
         );
     }
 }

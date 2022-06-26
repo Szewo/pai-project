@@ -26,7 +26,7 @@ class SecurityController extends BaseController
             $this->renderView('login');
         }
 
-        $email = $_POST['email'];
+        $email = trim($_POST['email']);
         $password = $_POST['password'];
 
         $user = $this->userRepository->getUserByEmail($email);
@@ -35,8 +35,12 @@ class SecurityController extends BaseController
             return $this->renderView('login', ['message' => 'Something went wrong! Try Again!']);
         }
 
+        $_SESSION['email'] = $user->getEmail();
+        $_SESSION['id'] = $user->getId();
+
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/dashboard");
 
     }
+
 }

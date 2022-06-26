@@ -55,8 +55,4 @@ class Workout
     {
         $this->date = new DateTime($date);
     }
-
-
-
-
 }

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 use App\Application;
 
 use App\Controllers\HomeController;

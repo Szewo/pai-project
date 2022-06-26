@@ -4,6 +4,7 @@ namespace App;
 
 use App\Routing\RequestInterface;
 use App\Routing\Router;
+use ReflectionException;
 
 class Application
 {
@@ -15,9 +16,9 @@ class Application
     }
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
-    public function addControllersToRouter(array $controllers)
+    public function addControllersToRouter(array $controllers): void
     {
         $this->router->reqisterRoutes($controllers);
     }
