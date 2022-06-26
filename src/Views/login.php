@@ -28,5 +28,9 @@
         <br>
         <button type="submit"> SUBMIT </button>
     </form>
+    <form class="sign_up" action="/register" method="get">
+        <button type="submit">REGISTER NEW ACCOUNT</button>
+    </form>
+
 </body>
 </html>

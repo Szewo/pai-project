@@ -17,6 +17,16 @@ class LoginController extends BaseController
         return $this->renderView('login');
     }
 
+    /**
+     * @throws ViewNotFoundException
+     */
+    #[Route('/register')]
+    public function register(): string
+    {
+        $this->resetSession();
+        return $this->renderView('register');
+    }
+
     private function resetSession(): void
     {
         session_destroy();
