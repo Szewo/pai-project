@@ -10,15 +10,17 @@ class User
     private string $surname;
     private ?int $id;
     private ?int $userDetails;
+    private ?int $userRole;
 
     public function __construct(string $email, string $password, string $name, string $surname, int $id = NULL,
-                                int $userDetails = NULL)
+                                int $userRole = NULL, int $userDetails = NULL)
     {
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
         $this->surname = $surname;
         $this->id = $id;
+        $this->userRole = $userRole;
         $this->userDetails = $userDetails;
     }
 
@@ -117,4 +119,22 @@ class User
     {
         $this->userDetails = $userDetails;
     }
+
+    /**
+     * @return int|null
+     */
+    public function getUserRole(): ?int
+    {
+        return $this->userRole;
+    }
+
+    /**
+     * @param int|null $userRole
+     */
+    public function setUserRole(?int $userRole): void
+    {
+        $this->userRole = $userRole;
+    }
+
+
 }

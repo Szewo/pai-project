@@ -37,6 +37,7 @@ class SecurityController extends BaseController
 
         $_SESSION['email'] = $user->getEmail();
         $_SESSION['id'] = $user->getId();
+        $_SESSION['user_role'] = $user->getUserRole();
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/dashboard");
