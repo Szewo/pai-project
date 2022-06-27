@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Attributes\Route;
-use App\Exceptions\ViewNotFoundException;
 use App\Models\Workout;
 use App\Repository\WorkoutRepository;
 use App\Routing\UserRole;
@@ -40,6 +39,26 @@ class WorkoutController extends BaseController
         $this->workoutRepository->addWorkout($workout);
 
         return $this->renderView('add-workout');
+    }
+
+    /**
+     * @throws Exception
+     */
+    #[Route('/all-workouts', 'GET', UserRole::REGISTERED)]
+    public function listWorkouts() {
+        $workouts = $this->workoutRepository->getAllWorkouts();
+
+        return $this->renderView('all-workouts', ['workouts' => $workouts]);
+    }
+
+    /**
+     * @throws Exception
+     */
+    #[Route('/all-workouts/view', 'GET', UserRole::REGISTERED)]
+    public function viewWorkout() {
+        $workout = $this->workoutRepository->getWorkoutById((int) $_REQUEST['id']);
+
+        return $this->renderView('view-workout', ['workout' => $workout]);
     }
 
 }

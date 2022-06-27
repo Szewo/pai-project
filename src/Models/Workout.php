@@ -8,21 +8,21 @@ use Exception;
 class Workout
 {
     private string $name;
-
     private DateTime $date;
-
     private int $userId;
+    private ?int $id;
 
     /**
      * @param string $name
      * @param string $date
      * @throws Exception
      */
-    public function __construct(string $name, string $date, int $userId)
+    public function __construct(string $name, string $date, int $userId, int $id = NULL)
     {
         $this->name = $name;
         $this->date = new DateTime($date);
         $this->userId = $userId;
+        $this->id = $id;
     }
 
     /**
@@ -73,4 +73,22 @@ class Workout
     {
         $this->userId = $userId;
     }
+
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
+
 }
