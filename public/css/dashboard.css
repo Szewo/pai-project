@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: purple;
+    justify-content: flex-start;
+    width: 80%;
+    height: 100%;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    background-color: #424242;
+    width: 20%;
+    height: 100%;
+
+}
+
+.header {
+    height: 10%;
+    width: 100%;
+    background-color: #424242;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.content {
+    height: 90%;
+    width: 100%;
+    background-color: #5C5C5C;
+}
+
+.nav-text-first {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-left: 2%;
+}
+
+.nav-text-second {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-left: 1%;
+    color: #C23030;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    line-height: 2em;
+}
+
+li i {
+    font-size: 1.5em;
+}
+
+.button {
+    margin-left: 1em;
+    text-align: left;
+    letter-spacing: 0.7px;
+    color: white;
+    padding: 0.2em;
+    width: 60%;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    list-style-type: none;
+    color: white;
+    letter-spacing: 0.72px;
+    height: 100%;
+    width: 90%;
+    position: relative;
+}
+
+li {
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+ul a:hover {
+    color: #C23030;
+}
+
+li:first-child i {
+    background-color: #990237;
+    padding: 1rem;
+    border-radius: 90px;
+}
+
+li i {
+    background-color: green;
+    padding: 1rem;
+    border-radius: 90px;
+}
+
+li:last-child i {
+    background-color: transparent;
+}
+
+li:last-child {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.fa-solid {
+    width: 1em;
+}
+
+.user-avatar {
+    display: flex;
+    align-self: center;
+    background-color: gray;
+    padding: 2em;
+    font-size: 1.5em;
+    border-radius: 90px;
+    margin-top: 2em;
+}
+
+.sign-up-button {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 4px;
+    border-color: #F50057;
+    color: #F50057;
+    width: 60%;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 4%;
+    margin-bottom: 2em;
+    padding: 2% 2% 2% 2%;
+}
+
+.user-mail {
+    display: flex;
+    align-self: center;
+}
