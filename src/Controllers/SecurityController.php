@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Attributes\Route;
 use App\Exceptions\ViewNotFoundException;
+use App\Models\User;
 use App\Repository\UserRepository;
 use App\Routing\UserRole;
 
@@ -28,11 +29,9 @@ class SecurityController extends BaseController
         }
 
         $email = trim($_POST['email']);
-        $password = $_POST['password'];
-
         $user = $this->userRepository->getUserByEmail($email);
 
-        if ($user === NULL || $user->getEmail() !== $email || $user->getPassword() !== $password) {
+        if ($user === NULL || $user->getEmail() !== $email || !password_verify($_POST['password'], $user->getPassword())) {
             return $this->renderView('login', ['message' => 'Something went wrong! Try Again!']);
         }
 
@@ -42,6 +41,31 @@ class SecurityController extends BaseController
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/dashboard");
+    }
+
+    /**
+     * @throws ViewNotFoundException
+     */
+    #[Route('/register', 'POST', UserRole::ANONYMOUS)]
+    public function register() {
+        if (!$this->isPost()) {
+            $this->renderView('register');
+        }
+
+        $email = trim($_POST['email']);
+        $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
+        $repeatPassword = trim($_POST['rep_password']);
+        $name = trim($_POST['name']);
+        $surname = trim($_POST['surname']);
+
+        $user = new User($email, $password, $name, $surname);
+
+        $this->userRepository->addUserDetails($user);
+        $this->userRepository->addUserDetailsLastInsertedId($user);
+        $this->userRepository->addUser($user);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/");
     }
 
 }
