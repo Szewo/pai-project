@@ -13,7 +13,7 @@ use App\Routing\Router;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-const VIEWS_DIR = __DIR__ . '/../src/Views/';
+const VIEWS_DIR = __DIR__ . '/views/';
 
 $application = new Application(new Router());
 try {
