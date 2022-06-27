@@ -189,6 +189,13 @@ form {
         align-items: center;
         width: 90%;
     }
+
+    .login-icon {
+        background-color: purple;
+        font-size: 1.2rem;
+        padding: 3%;
+        border-radius: 90px;
+    }
 }
 
 @media only screen and (max-width: 425px) {
@@ -245,5 +252,12 @@ form {
         flex-direction: column;
         align-items: center;
         width: 90%;
+    }
+
+    .login-icon {
+        background-color: purple;
+        font-size: 0.8rem;
+        padding: 3%;
+        border-radius: 90px;
     }
 }
