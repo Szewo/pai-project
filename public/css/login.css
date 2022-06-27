@@ -1,9 +1,249 @@
 body {
-    background-color: blue;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .base-container {
     width: 100vw;
     height: 100vh;
-    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-screen {
+    background-image: url(../images/login_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 100%;
+}
+
+.welcome-screen > h1 {
+    font-size: 6rem;
+    margin-left: 5%;
+    font-weight: 300;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.2em;
+}
+
+.welcome-screen > h2 {
+    font-size: 3em;
+    margin-left: 5%;
+    margin-block-start: 0.1em;
+    font-weight: 400;
+}
+
+.sign-in-up-form {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    height: 100%;
+    background: #424242;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20%;
+    width: 40vw;
+}
+
+.login-form > h1 {
+    font-weight: 400;
+    margin-block-start: 0.2em;
+    margin-block-end: 0.2em;
+    font-size: 3rem;
+}
+
+.login-form > h4 {
+    font-weight: 400;
+    margin-block-start: 0.4em;
+    margin-block-end: 0.6em;
+    font-size: 1.5rem;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 0.5em;
+    margin: 0.5em;
+    width: 40vh;
+}
+
+form {
+    width: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-in-button {
+    background: #F50057;
+    border-radius: 4px;
+    border-color: transparent;
+    color: white;
+    width: 100%;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    padding: 1% 1% 1% 1%;
+}
+
+.sign-up-button {
+    background-color: transparent;
+    border-radius: 4px;
+    border-color: #F50057;
+    color: #F50057;
+    width: 100%;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    padding: 2% 2% 2% 2%;
+}
+
+.sign-in-button:hover {
+    background: #990237;
+}
+
+.sign-up-button:hover {
+    border-color: #990237;
+    color: #990237;
+}
+
+.login-icon {
+    background-color: purple;
+    font-size: 2rem;
+    padding: 3%;
+    border-radius: 90px;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .welcome-screen {
+        display: none;
+    }
+
+    .sign-in-up-form {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20%;
+        width: 40vw;
+    }
+
+    .login-form > h1 {
+        font-weight: 400;
+        margin-block-start: 0.2em;
+        margin-block-end: 0.2em;
+        font-size: 2rem;
+    }
+
+    .login-form > h4 {
+        font-weight: 400;
+        margin-block-start: 0.4em;
+        margin-block-end: 0.6em;
+        font-size: 1rem;
+    }
+
+    .login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1rem;
+    }
+
+    input {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid gray;
+        padding: 0.5em;
+        margin: 0.5em;
+        width: 30vh;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .welcome-screen {
+        display: none;
+    }
+
+    .sign-in-up-form {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30%;
+    }
+
+    .login-form > h1 {
+        font-weight: 400;
+        margin-block-start: 0.2em;
+        margin-block-end: 0.2em;
+        font-size: 2rem;
+    }
+
+    .login-form > h4 {
+        font-weight: 400;
+        margin-block-start: 0.4em;
+        margin-block-end: 0.6em;
+        font-size: 0.8rem;
+    }
+
+    .login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1rem;
+    }
+
+    input {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid gray;
+        padding: 0.5em;
+        margin: 0.5em;
+        width: 20vh;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
 }
