@@ -68,12 +68,12 @@ class SecurityController extends BaseController
         header("Location: {$url}/");
     }
 
-    #[Route('/dashboard/logout', 'GET', UserRole::REGISTERED)]
+    #[Route('/logout', 'GET', UserRole::REGISTERED)]
     public function logout() {
         unset($_SESSION['email'], $_SESSION['id'], $_SESSION['user_role']);
         session_destroy();
 
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/login");
+        header("Location: {$url}/");
     }
 }
