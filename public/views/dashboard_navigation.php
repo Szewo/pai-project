@@ -12,10 +12,6 @@
         <a class='button' href="<?php echo "http://$_SERVER[HTTP_HOST]/done-workouts"?>">Done workouts</a> <br>
     </li>
     <li>
-        <i class="fa-solid fa-list-ol"></i>
-        <a class='button' href="<?php echo "http://$_SERVER[HTTP_HOST]/scheduled-workouts"?>">Scheduled workouts</a> <br>
-    </li>
-    <li>
         <i class="fa-solid fa-right-from-bracket"></i>
         <a class='button' href="<?php echo "http://$_SERVER[HTTP_HOST]/logout"?>">Logout</a> <br>
     </li>
