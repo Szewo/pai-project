@@ -7,6 +7,7 @@ use App\Application;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\SecurityController;
+use App\Controllers\WorkoutController;
 use App\Routing\Request;
 use App\Routing\Router;
 
@@ -20,6 +21,7 @@ try {
         LoginController::class,
         SecurityController::class,
         HomeController::class,
+        WorkoutController::class,
     ]);
 } catch (ReflectionException $e) {
 }

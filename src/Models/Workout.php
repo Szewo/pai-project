@@ -11,16 +11,18 @@ class Workout
 
     private DateTime $date;
 
+    private int $userId;
+
     /**
      * @param string $name
      * @param string $date
      * @throws Exception
      */
-    public function __construct(string $name, string $date)
+    public function __construct(string $name, string $date, int $userId)
     {
         $this->name = $name;
         $this->date = new DateTime($date);
-        $this->date->format('Y-m-d');
+        $this->userId = $userId;
     }
 
     /**
@@ -54,5 +56,21 @@ class Workout
     public function setDate(string $date): void
     {
         $this->date = new DateTime($date);
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param int $userId
+     */
+    public function setUserId(int $userId): void
+    {
+        $this->userId = $userId;
     }
 }
