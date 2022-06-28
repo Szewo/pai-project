@@ -75,5 +75,8 @@ class ExerciseController extends BaseController
         $exercise = new Exercise($exerciseName, $exerciseSets, $exerciseReps, $exerciseWeight, $exerciseBreak, $exerciseWorkoutId);
 
         $this->exerciseRepository->addWorkout($exercise);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/all-workouts/view?id=" . $exerciseWorkoutId);
     }
 }
