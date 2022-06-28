@@ -40,7 +40,7 @@ class SecurityController extends BaseController
         $_SESSION['user_role'] = $user->getUserRole();
 
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/dashboard");
+        header("Location: {$url}/all-workouts");
     }
 
     /**

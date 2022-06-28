@@ -1,0 +1,47 @@
+.content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 300;
+}
+
+table {
+    width: 80%;
+    margin-top: 5em;
+    box-shadow: -5px 17px 31px -15px #424242;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 1em;
+    background-color: #6C6C6C;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    line-height: 2em;
+    color: white;
+}
+
+td {
+    text-align: center;
+}
+
+.all-workout-header {
+    margin: 1em;
+    font-weight: 300;
+    display: flex;
+    justify-self: flex-start;
+    align-self: flex-start;
+    margin-block-start: 0.5em;
+    margin-block-end: 0;
+}
+
+td i {
+    font-size: 1.5em;
+}
+
+td i:hover {
+    color: #F50057;
+}
