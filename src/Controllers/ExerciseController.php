@@ -33,6 +33,14 @@ class ExerciseController extends BaseController
         return $this->renderView('edit-exercise', ['exercise' => $exercise]);
     }
 
+    #[Route('/exercise/delete', 'GET', UserRole::REGISTERED)]
+    public function deleteWorkoutExercise() {
+        $this->exerciseRepository->deleteExercise((int) $_REQUEST['id']);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/all-workouts/view?id=" . (int) $_REQUEST['wid']);
+    }
+
     #[Route('/exercise/edit', 'POST', UserRole::REGISTERED)]
     public function editExercise() {
         $exerciseName = $_POST['exercise_name'];

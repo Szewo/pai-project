@@ -72,7 +72,10 @@
                                     </a>
                                 </td>
                                 <td>
-                                    DELETE
+                                    <a href=<?php echo "http://$_SERVER[HTTP_HOST]/exercise/delete?id=" .
+                                        $exercise->getId() ."&wid=" . $exercise->getWorkoutId()?>>
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
