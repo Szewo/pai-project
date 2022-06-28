@@ -68,17 +68,16 @@ class SecurityController extends BaseController
 
         $message = $this->checkPassword($password, $repeatPassword);
         if (strcmp($message, self::IS_VALID) !== 'TRUE') {
-            return $this->renderView('register', ['message' => $message]);
+
+            $user = new User($email, password_hash($password, PASSWORD_DEFAULT), $name, $surname);
+
+            $this->userRepository->addUserDetails($user);
+            $this->userRepository->addUserDetailsLastInsertedId($user);
+            $this->userRepository->addUser($user);
+
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/");
         }
-
-        $user = new User($email, password_hash($password, PASSWORD_DEFAULT), $name, $surname);
-
-        $this->userRepository->addUserDetails($user);
-        $this->userRepository->addUserDetailsLastInsertedId($user);
-        $this->userRepository->addUser($user);
-
-        $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/");
     }
 
     #[Route('/logout', 'GET', UserRole::REGISTERED)]
