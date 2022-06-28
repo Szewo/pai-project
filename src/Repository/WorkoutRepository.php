@@ -15,8 +15,23 @@ class WorkoutRepository extends BaseRepository
         $db->execute([
             $workout->getName(),
             $workout->getDate()->format('Y-m-d'),
-            $workout->getUserId(),
-        ]);
+            $workout->getUserId()]);
+    }
+
+    public function editWorkout(Workout $workout): void {
+        $sql = 'UPDATE workouts SET name = :name, date = :date WHERE id = :id';
+        $db = $this->getPdo()->prepare($sql);
+        $db->bindValue(':name', $workout->getName());
+        $db->bindValue(':date', $workout->getDate()->format('Y-m-d'));
+        $db->bindValue(':id', $workout->getId(), PDO::PARAM_INT);
+        $db->execute();
+    }
+
+    public function deleteWorkout(int $id): void {
+        $sql = 'DELETE FROM workouts WHERE id = :id';
+        $db = $this->getPdo()->prepare($sql);
+        $db->bindValue(':id', $id);
+        $db->execute();
     }
 
     /**

@@ -45,10 +45,14 @@
                                 </a>
                             </td>
                             <td>
-                                <i class="fa-solid fa-pen-to-square"></i>
+                                <a href=<?php echo "http://$_SERVER[HTTP_HOST]/all-workouts/edit?id=" . $workout->getId()?>>
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
                             </td>
                             <td>
-                                <i class="fa-solid fa-trash-can"></i>
+                                <a href=<?php echo "http://$_SERVER[HTTP_HOST]/all-workouts/delete?id=" . $workout->getId()?>>
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

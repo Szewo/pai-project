@@ -55,10 +55,53 @@ class WorkoutController extends BaseController
      * @throws Exception
      */
     #[Route('/all-workouts/view', 'GET', UserRole::REGISTERED)]
-    public function viewWorkout() {
+    public function viewWorkout(): string
+    {
         $workout = $this->workoutRepository->getWorkoutById((int) $_REQUEST['id']);
 
         return $this->renderView('view-workout', ['workout' => $workout]);
+    }
+
+    /**
+     * @throws Exception
+     */
+    #[Route('/all-workouts/edit', 'GET', UserRole::REGISTERED)]
+    public function editWorkout(): string
+    {
+        $workout = $this->workoutRepository->getWorkoutById((int) $_REQUEST['id']);
+
+        return $this->renderView('edit-workout', ['workout' => $workout]);
+    }
+
+    /**
+     * @throws Exception
+     */
+    #[Route('/all-workouts/edit', 'POST', UserRole::REGISTERED)]
+    public function editWorkoutPost()
+    {
+        $workoutId = $_POST['workout_id'];
+        $workoutName = $_POST['workout_name'];
+        $workoutDate = $_POST['workout_date'];
+
+        $workout = new Workout($workoutName, $workoutDate, $_SESSION['id'], $workoutId);
+
+        $this->workoutRepository->editWorkout($workout);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/all-workouts");
+    }
+
+    /**
+     * @throws Exception
+     */
+    #[Route('/all-workouts/delete', 'GET', UserRole::REGISTERED)]
+    public function deleteWorkout()
+    {
+        $this->workoutRepository->deleteWorkout((int) $_REQUEST['id']);
+        $workouts = $this->workoutRepository->getAllWorkouts();
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/all-workouts");
     }
 
 }
