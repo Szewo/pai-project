@@ -28,6 +28,50 @@
                     Workout date: <?php echo $workout->getDate()->format('Y-m-d') ?> <br>
                 <?php endif; ?>
             </div>
+            <div class="exercises-information">
+                <?php if (isset($exercises)): ?>
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>SETS</th>
+                            <th>REPETITIONS</th>
+                            <th>WEIGHT</th>
+                            <th>BREAK</th>
+                            <th>DELETE</th>
+                            <th>EDIT</th>
+                        </tr>
+                        <?php foreach ($exercises as $exercise): ?>
+                            <tr>
+                                <td>
+                                    <?php echo $exercise->getId() ?>
+                                </td>
+                                <td>
+                                    <?php echo $exercise->getName() ?>
+                                </td>
+                                <td>
+                                    <?php echo $exercise->getSets() ?>
+                                </td>
+                                <td>
+                                    <?php echo $exercise->getRepetitions() ?>
+                                </td>
+                                <td>
+                                    <?php echo $exercise->getWeight() ?>
+                                </td>
+                                <td>
+                                    <?php echo $exercise->getBreak() ?>
+                                </td>
+                                <td>
+                                    DELETE
+                                </td>
+                                <td>
+                                    EDIT
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </div>

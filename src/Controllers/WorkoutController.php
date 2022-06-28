@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Attributes\Route;
 use App\Models\Workout;
+use App\Repository\ExerciseRepository;
 use App\Repository\WorkoutRepository;
 use App\Routing\UserRole;
 use Exception;
@@ -12,11 +13,13 @@ class WorkoutController extends BaseController
 {
 
     private WorkoutRepository $workoutRepository;
+    private ExerciseRepository $exerciseRepository;
 
     public function __construct()
     {
         parent::__construct();
         $this->workoutRepository = new WorkoutRepository();
+        $this->exerciseRepository = new ExerciseRepository();
     }
 
     #[Route('/add-workout', 'GET', UserRole::REGISTERED)]
@@ -58,8 +61,9 @@ class WorkoutController extends BaseController
     public function viewWorkout(): string
     {
         $workout = $this->workoutRepository->getWorkoutById((int) $_REQUEST['id']);
+        $exercises = $this->exerciseRepository->getExerciseByWorkoutId((int) $_REQUEST['id']);
 
-        return $this->renderView('view-workout', ['workout' => $workout]);
+        return $this->renderView('view-workout', ['workout' => $workout, 'exercises' => $exercises]);
     }
 
     /**
