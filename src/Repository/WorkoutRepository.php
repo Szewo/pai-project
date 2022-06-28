@@ -38,8 +38,11 @@ class WorkoutRepository extends BaseRepository
      * @throws Exception
      */
     public function getAllWorkouts(): array {
-        $sql = 'SELECT * FROM workouts';
-        $workouts = $this->getPdo()->query($sql)->fetchAll();
+        $sql = 'SELECT * FROM workouts WHERE id_user = :id_user';
+        $db = $this->getPdo()->prepare($sql);
+        $db->bindValue(':id_user', $_SESSION['id']);
+        $db->execute();
+        $workouts = $db->fetchAll();
         $workoutsArray = [];
 
         foreach ($workouts as $key => $value) {
