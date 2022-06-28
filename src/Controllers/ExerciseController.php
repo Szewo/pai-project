@@ -26,10 +26,32 @@ class ExerciseController extends BaseController
         return $this->renderView('add-exercise');
     }
 
-    #[Route('/all-workouts/exercise/edit', 'GET', UserRole::REGISTERED)]
+    #[Route('/exercise/edit', 'GET', UserRole::REGISTERED)]
     public function editWorkoutExercise() {
+        $exercise = $this->exerciseRepository->getExerciseById((int) $_REQUEST['id']);
 
+        return $this->renderView('edit-exercise', ['exercise' => $exercise]);
     }
+
+    #[Route('/exercise/edit', 'POST', UserRole::REGISTERED)]
+    public function editExercise() {
+        $exerciseName = $_POST['exercise_name'];
+        $exerciseSets = $_POST['exercise_sets'];
+        $exerciseReps = $_POST['exercise_repetitions'];
+        $exerciseWeight = $_POST['exercise_weight'];
+        $exerciseBreak = $_POST['exercise_break'];
+        $workoutId = $_POST['workout_id'];
+        $exerciseId = $_POST['exercise_id'];
+
+        $exercise = new Exercise($exerciseName, $exerciseSets, $exerciseReps, $exerciseWeight, $exerciseBreak,
+            null, $exerciseId);
+
+        $this->exerciseRepository->editExercise($exercise);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/all-workouts/view?id=" . $workoutId);
+    }
+
 
     #[Route('/exercise/add', 'POST', UserRole::REGISTERED)]
     public function addExercise() {

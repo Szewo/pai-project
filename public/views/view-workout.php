@@ -43,8 +43,8 @@
                             <th>REPETITIONS</th>
                             <th>WEIGHT</th>
                             <th>BREAK</th>
-                            <th>DELETE</th>
                             <th>EDIT</th>
+                            <th>DELETE</th>
                         </tr>
                         <?php foreach ($exercises as $exercise): ?>
                             <tr>
@@ -67,10 +67,12 @@
                                     <?php echo $exercise->getBreak() ?>
                                 </td>
                                 <td>
-                                    DELETE
+                                    <a href=<?php echo "http://$_SERVER[HTTP_HOST]/exercise/edit?id=" . $exercise->getId()?>>
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
                                 </td>
                                 <td>
-                                    EDIT
+                                    DELETE
                                 </td>
                             </tr>
                         <?php endforeach; ?>
