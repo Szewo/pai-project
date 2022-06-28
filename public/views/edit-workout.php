@@ -45,11 +45,6 @@
                         <br>
                         <button class="submit-button" type="submit"> SUBMIT</button>
                     </form>
-                <div class="add-exercise">
-                    <a href="<?php echo "http://$_SERVER[HTTP_HOST]/exercise/add?id=" . $workout->getId() ?>">
-                        <button class="add-exercise-button">Add exercise to workout</button>
-                    </a>
-                </div>
                 <?php endif; ?>
             </div>
         </div>

@@ -27,6 +27,11 @@
                     Workout name: <?php echo $workout->getName() ?> <br>
                     Workout date: <?php echo $workout->getDate()->format('Y-m-d') ?> <br>
                 <?php endif; ?>
+                <div class="add-exercise-button-container">
+                    <a href="<?php echo "http://$_SERVER[HTTP_HOST]/exercise/add?id=" . $workout->getId() ?>">
+                        <button class="add-exercise-button">Add exercise to workout</button>
+                    </a>
+                </div>
             </div>
             <div class="exercises-information">
                 <?php if (isset($exercises)): ?>

@@ -42,3 +42,16 @@ a {
 td {
     text-align: center;
 }
+
+.add-exercise-button {
+    background-color: transparent;
+    border-radius: 4px;
+    border-color: #F50057;
+    color: white;
+    width: 40vh;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 1%;
+    margin-bottom: 4%;
+    padding: 1% 1% 1% 1%;
+}
