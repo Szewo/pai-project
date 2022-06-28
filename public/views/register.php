@@ -18,6 +18,13 @@
             <i class="fa-solid fa-unlock login-icon"></i>
             <h1>Sign Up</h1>
             <h4>Welcome to GymBro app.</h4>
+            <div class="message">
+                <?php
+                if (isset($message)) {
+                    echo $message;
+                }
+                ?>
+            </div>
             <form class="register" action="/register" method="POST">
                 <label>
                     <input name="email" type="text" placeholder="email"/>

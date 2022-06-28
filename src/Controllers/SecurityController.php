@@ -10,6 +10,10 @@ use App\Routing\UserRole;
 
 class SecurityController extends BaseController
 {
+
+    const MIN_PASSWORD_LEN = 5;
+    const IS_VALID = 'TRUE';
+
     private UserRepository $userRepository;
 
     public function __construct()
@@ -53,12 +57,21 @@ class SecurityController extends BaseController
         }
 
         $email = trim($_POST['email']);
-        $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
+        $password =trim($_POST['password']);
         $repeatPassword = trim($_POST['rep_password']);
         $name = trim($_POST['name']);
         $surname = trim($_POST['surname']);
 
-        $user = new User($email, $password, $name, $surname);
+        if ($name === "" || $surname === "" || $email === "" || $password === "" || $repeatPassword === "") {
+            return $this->renderView('register', ['message' => 'Please fill all fields.']);
+        }
+
+        $message = $this->checkPassword($password, $repeatPassword);
+        if (strcmp($message, self::IS_VALID) !== 'TRUE') {
+            return $this->renderView('register', ['message' => $message]);
+        }
+
+        $user = new User($email, password_hash($password, PASSWORD_DEFAULT), $name, $surname);
 
         $this->userRepository->addUserDetails($user);
         $this->userRepository->addUserDetailsLastInsertedId($user);
@@ -75,5 +88,21 @@ class SecurityController extends BaseController
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/");
+    }
+
+    private function checkPassword($password, $repeatPassword): string {
+        if (strlen($password) < self::MIN_PASSWORD_LEN) {
+            return 'Minimum password length is ' . self::MIN_PASSWORD_LEN .' characters.';
+        }
+
+        if (strpos($password, " ") || !preg_match('~[0-9]+~', $password)) {
+            return 'Password should contain number and no spaces.';
+        }
+
+        if ($password !== $repeatPassword) {
+            return 'Passwords does not match.';
+        }
+
+        return self::IS_VALID;
     }
 }
