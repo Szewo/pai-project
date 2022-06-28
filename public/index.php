@@ -4,6 +4,7 @@ session_start();
 
 use App\Application;
 
+use App\Controllers\ExerciseController;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\SecurityController;
@@ -22,6 +23,7 @@ try {
         SecurityController::class,
         HomeController::class,
         WorkoutController::class,
+        ExerciseController::class,
     ]);
 } catch (ReflectionException $e) {
 }

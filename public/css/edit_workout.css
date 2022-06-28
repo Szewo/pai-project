@@ -1,0 +1,82 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #424242;
+    padding: 0.5em;
+    margin: 0.5em;
+    width: 40vh;
+    color: white;
+}
+
+input::placeholder {
+    color: white;
+    font-weight: 300;
+}
+
+form {
+    width: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-workout-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    width: 100%;
+    background-color: #6C6C6C;
+    box-shadow: -5px 17px 31px -15px #424242;
+}
+
+.add-workout-form-container h3 {
+    margin-left: 0.5em;
+    font-weight: 300;
+}
+
+.submit-button {
+    background: #F50057;
+    border-radius: 4px;
+    border-color: transparent;
+    color: white;
+    width: 100%;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    padding: 1% 1% 1% 1%;
+}
+
+.add-workout-header {
+    margin: 1em;
+    font-weight: 300;
+}
+
+.add-exercise-button {
+    background-color: transparent;
+    border-radius: 4px;
+    border-color: #F50057;
+    color: white;
+    width: 40vh;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 1%;
+    margin-bottom: 4%;
+    padding: 1% 1% 1% 1%;
+}
+
+.add-exercise {
+    display: flex;
+    width: 40vh;
+}

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="../css/add_workout.css">
+    <link rel="stylesheet" type="text/css" href="../css/edit_workout.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GymBro</title>
@@ -45,6 +45,11 @@
                         <br>
                         <button class="submit-button" type="submit"> SUBMIT</button>
                     </form>
+                <div class="add-exercise">
+                    <a href="<?php echo "http://$_SERVER[HTTP_HOST]/exercise/add?id=" . $workout->getId() ?>">
+                        <button class="add-exercise-button">Add exercise to workout</button>
+                    </a>
+                </div>
                 <?php endif; ?>
             </div>
         </div>
